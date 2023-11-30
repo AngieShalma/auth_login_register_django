@@ -34,18 +34,19 @@ class _registerScreenState extends State<registerScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-          if(state is RegisterSucessState && D==true){
+          print(registerIsDeaf);
+          if(state is RegisterSucessState && registerIsDeaf=="true"){
             Navigator.pushReplacement(context, MaterialPageRoute(
 
                 builder: ((context) => deafHomeScreen())));
 
-          }else if(state is RegisterSucessState &&D==false){
+          }else if(state is RegisterSucessState && registerIsDeaf=="false"){
             Navigator.pushReplacement(context, MaterialPageRoute(
 
                 builder: ((context) => homeScreen())));
 
           }
-          else if(state is RegisterFailedState){
+        if(state is RegisterFailedState){
             showDialog(context: context, builder: ((context) => AlertDialog(
               content: Text("failed ",style: TextStyle(
                 color: Colors.white,

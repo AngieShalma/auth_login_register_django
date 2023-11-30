@@ -7,16 +7,21 @@ import 'package:test_api_register_login_logout/screens/home_screen.dart';
 import 'package:test_api_register_login_logout/screens/welcome_screen.dart';
 import 'package:test_api_register_login_logout/shared/network/shared_preferences.dart';
 String? token;
-String? D;
+String? loginIsDeaf;
+String? registerIsDeaf;
+
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
  await CacheNetwork.cacheInitalization();
   token =await CacheNetwork.getCacheData(key: 'token');
-  D = CacheNetwork.getIsDeaffCacheData(key:'isDeaff');
+  loginIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'loginIsDeaf').toLowerCase();
+  registerIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'registerIsDeaf').toLowerCase();
 
 
   print("token is:$token ");
-  print("isDeaf value:$D ");
+  print("login isDeaf value:$loginIsDeaf ");
+  print("register IsDeaf value:$registerIsDeaf ");
+
   runApp(const MyApp());
 }
 
@@ -36,7 +41,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
   debugShowCheckedModeBanner: false,
-        home:token !=null &&token !=""?homeScreen(): welcomeScreen(),
+        home: welcomeScreen(),//token !=null &&token !=""?homeScreen(): welcomeScreen(),
       ),
     );
   }

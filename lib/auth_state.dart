@@ -11,3 +11,7 @@ class RegisterFailedState extends AuthState {}
 class LoginLoadingState extends AuthState {}
 class LoginSucessState extends AuthState {}
 class LoginFailedState extends AuthState {}
+
+class LogoutLoadingState extends AuthState {}
+class LogoutSucessState extends AuthState {}
+class LogoutFailedState extends AuthState {}

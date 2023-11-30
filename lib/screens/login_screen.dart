@@ -29,11 +29,14 @@ class _loginScreenState extends State<loginScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>
       (listener: (context, state) {
-      if(state is LoginSucessState && D==false){
+
+      print(loginIsDeaf);
+
+      if(state is LoginSucessState && loginIsDeaf=="false"){
         Navigator.pushReplacement(context, MaterialPageRoute(
 
             builder: ((context) => homeScreen())));
-      } if(state is LoginSucessState && D==true){
+      }else if(state is LoginSucessState && loginIsDeaf=="true"){
         Navigator.pushReplacement(context, MaterialPageRoute(
 
             builder: ((context) => deafHomeScreen())));

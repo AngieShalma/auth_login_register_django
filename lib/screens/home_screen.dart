@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_api_register_login_logout/screens/welcome_screen.dart';
 import 'package:test_api_register_login_logout/shared/network/shared_preferences.dart';
+
+import '../auth_cubit.dart';
+import '../main.dart';
 
 class homeScreen extends StatefulWidget {
   const homeScreen({Key? key}) : super(key: key);
@@ -26,7 +30,7 @@ class _homeScreenState extends State<homeScreen> {
           SizedBox(height: 300,),
           GestureDetector(
             onTap: (){
-              CacheNetwork.deleteIsDeaffCacheItem(key: 'isDeaff');
+              BlocProvider.of<AuthCubit>(context).logOut(token: token!);
               Navigator.pushAndRemoveUntil<void>(context, MaterialPageRoute(builder: ((context) => welcomeScreen())),(Route<dynamic> route) => false);
 
             },

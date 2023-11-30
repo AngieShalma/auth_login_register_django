@@ -17,8 +17,8 @@ class CacheNetwork{
       return await sharedPref.remove(key);
     }
 
-  static Future<bool> insertIsDeaffToCache({required String key,required bool value})async{
-    return await sharedPref.setBool(key, value);
+  static Future<bool> insertIsDeaffToCache({required String key,required String value})async{
+    return await sharedPref.setString(key, value);
 
   }
 
@@ -28,5 +28,10 @@ class CacheNetwork{
 
   static Future<bool> deleteIsDeaffCacheItem({required String key})async{
     return await sharedPref.remove(key);
+
   }
+
+
+
+
 }
