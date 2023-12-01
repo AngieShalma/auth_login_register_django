@@ -5,6 +5,7 @@ import 'package:test_api_register_login_logout/screens/home_screen.dart';
 
 import '../auth_cubit.dart';
 import '../main.dart';
+import '../shared/network/shared_preferences.dart';
 import 'deaf_home_screen.dart';
 import 'login_screen.dart';
 
@@ -33,8 +34,12 @@ class _registerScreenState extends State<registerScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
-        listener: (context, state) {
-          print(registerIsDeaf);
+        listener: (context, state) async {
+          registerIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'registerIsDeaf').toLowerCase();
+
+
+          print("last$registerIsDeaf");
+
           if(state is RegisterSucessState && registerIsDeaf=="true"){
             Navigator.pushReplacement(context, MaterialPageRoute(
 

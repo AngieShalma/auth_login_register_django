@@ -14,13 +14,13 @@ Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
  await CacheNetwork.cacheInitalization();
   token =await CacheNetwork.getCacheData(key: 'token');
-  loginIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'loginIsDeaf').toLowerCase();
-  registerIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'registerIsDeaf').toLowerCase();
-
+  // loginIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'loginIsDeaf').toLowerCase();
+  // registerIsDeaf = await CacheNetwork.getIsDeaffCacheData(key:'registerIsDeaf').toLowerCase();
+  //
 
   print("token is:$token ");
-  print("login isDeaf value:$loginIsDeaf ");
-  print("register IsDeaf value:$registerIsDeaf ");
+  // print("login isDeaf value:$loginIsDeaf ");
+  // print("register IsDeaf value:$registerIsDeaf ");
 
   runApp(const MyApp());
 }
