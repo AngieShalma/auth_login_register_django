@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_api_register_login_logout/auth_cubit.dart';
 import 'package:test_api_register_login_logout/screens/home_screen.dart';
+import 'package:test_api_register_login_logout/screens/user_info.dart';
 import 'package:test_api_register_login_logout/screens/welcome_screen.dart';
 import 'package:test_api_register_login_logout/shared/network/shared_preferences.dart';
 String? token;
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
   debugShowCheckedModeBanner: false,
-        home: welcomeScreen(),//token !=null &&token !=""?homeScreen(): welcomeScreen(),
+        home: userInfoScreen()//welcomeScreen(),//token !=null &&token !=""?homeScreen(): welcomeScreen(),
       ),
     );
   }
